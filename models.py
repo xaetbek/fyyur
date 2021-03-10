@@ -1,9 +1,11 @@
-from app import db
+from flask_sqlalchemy import SQLAlchemy
 
+
+db = SQLAlchemy()
 
 class Venue(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String)
+    name = db.Column(db.String(120))
     genres = db.Column(db.ARRAY(db.String()))
     address = db.Column(db.String(120))
     city = db.Column(db.String(120))
@@ -23,7 +25,7 @@ class Venue(db.Model):
 class Artist(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String)
+    name = db.Column(db.String(120))
     genres = db.Column(db.ARRAY(db.String))
     city = db.Column(db.String(120))
     state = db.Column(db.String(120))
